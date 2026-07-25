@@ -6,6 +6,9 @@ import globals from 'globals'
 export default [
   js.configs.recommended,
   {
+    ignores: ['dist/**', 'node_modules/**'], // 👈 Derleme çıktısı dist klasörünü linter'dan tamamen hariç tutuyoruz
+  },
+  {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 'latest',
@@ -26,7 +29,7 @@ export default [
     rules: {
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      'react/react-in-jsx-scope': 'off', // React 19 JSX transform için
+      'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
     },
     settings: {

@@ -2,13 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 
 export default function useRevealOnScroll() {
   const ref = useRef(null)
-  const [isVisible, setIsVisible] = useState(false)
+  
+  // Başlangıçta kullanıcının hareket azaltma tercihini doğrudan kontrol ediyoruz (useEffect gerektirmez)
+  const prefersReducedMotion = 
+    typeof window !== 'undefined' && 
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  const [isVisible, setIsVisible] = useState(prefersReducedMotion)
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setIsVisible(true)
-      return
-    }
+    if (prefersReducedMotion) return
 
     const node = ref.current
     if (!node) return
@@ -24,7 +27,7 @@ export default function useRevealOnScroll() {
 
     observer.observe(node)
     return () => observer.disconnect()
-  }, [])
+  }, [prefersReducedMotion])
 
   return { ref, isVisible }
 }
