@@ -1,0 +1,22 @@
+.social-proof__intro {
+  margin-top: var(--space-1);
+  max-width: 44ch;
+}
+
+.social-proof__badge {
+  display: grid;
+  gap: var(--space-1);
+  height: 100%;
+  border-top: 3px solid var(--color-primary-green);
+}
+
+.stat-badge__detail {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .social-proof__intro {
+    margin-top: var(--space-2);
+  }
+}

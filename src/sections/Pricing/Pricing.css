@@ -1,0 +1,30 @@
+.pricing__intro {
+  margin-top: var(--space-1);
+  max-width: 52ch;
+}
+
+.pricing__grid {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.pricing__card {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.pricing__card--featured {
+  border: 1px solid var(--color-primary-green);
+  box-shadow: 0 8px 18px rgba(47, 143, 78, 0.2);
+}
+
+.pricing__plan {
+  color: var(--color-primary-green);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (min-width: 768px) {
+  .pricing__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

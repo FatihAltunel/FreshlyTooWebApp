@@ -1,0 +1,56 @@
+.contact__layout {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.contact__content {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.contact__intro {
+  margin-top: var(--space-1);
+  max-width: 52ch;
+}
+
+.contact__form-card {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.contact__form {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.contact__label {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.contact__input {
+  min-height: 48px;
+  padding: 0 0.875rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  font: inherit;
+}
+
+.contact__input:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 1px;
+}
+
+.contact__success {
+  color: var(--color-primary-green);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (min-width: 768px) {
+  .contact__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    align-items: start;
+  }
+}

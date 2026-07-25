@@ -1,0 +1,18 @@
+.consumer-features__intro {
+  margin-top: var(--space-1);
+  max-width: 52ch;
+}
+
+.consumer-features__card {
+  display: grid;
+  gap: var(--space-2);
+  height: 100%;
+  border-top: 3px solid var(--color-primary-green);
+  align-content: start;
+}
+
+@media (min-width: 768px) {
+  .consumer-features__intro {
+    margin-top: var(--space-2);
+  }
+}
