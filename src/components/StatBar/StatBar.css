@@ -1,0 +1,13 @@
+  .stat-bar {
+  height: 4px;
+  background: rgba(244, 241, 230, 0.12);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.stat-bar__fill {
+  width: 0;
+  height: 100%;
+  background: var(--ft-green-light);
+  transition: width 1.2s var(--ft-ease);
+}

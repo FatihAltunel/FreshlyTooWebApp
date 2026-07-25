@@ -1,0 +1,60 @@
+.marquee {
+  border-top: 1px solid var(--ft-border);
+  border-bottom: 1px solid var(--ft-border);
+  background: var(--ft-bg-2);
+  overflow: hidden;
+}
+
+.marquee__row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 30px 0;
+}
+
+.marquee__label {
+  flex-shrink: 0;
+  padding-left: var(--ft-gutter);
+}
+
+.marquee__viewport {
+  overflow: hidden;
+  flex: 1;
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: ft-marquee 34s linear infinite;
+}
+
+.marquee__clone,
+.marquee__group {
+  display: flex;
+  align-items: center;
+}
+
+/* Gap yerine sabit boşluk: iki kopyanın toplam genişliği eşit kalsın diye
+   (translateX(-50%) ancak öyle kusursuz döngü yapar). */
+.marquee__group {
+  gap: clamp(22px, 3vw, 44px);
+  padding-right: clamp(22px, 3vw, 44px);
+}
+
+.marquee__word {
+  font-family: var(--ft-font-serif);
+  font-size: clamp(20px, 2.3vw, 28px);
+  color: var(--ft-text);
+  white-space: nowrap;
+}
+
+.marquee__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 99px;
+  background: var(--ft-dot);
+  flex-shrink: 0;
+}

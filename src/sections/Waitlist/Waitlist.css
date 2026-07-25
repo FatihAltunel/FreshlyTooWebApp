@@ -1,0 +1,131 @@
+.waitlist {
+  border-top: 1px solid var(--ft-border);
+  background: var(--ft-bg-2);
+}
+
+.waitlist__grid {
+  padding-block: 88px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 56px;
+  align-items: center;
+}
+
+.waitlist__heading {
+  margin-top: 14px;
+}
+
+.waitlist__body {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ft-body-2);
+  margin-top: 16px;
+  max-width: 28em;
+}
+
+.waitlist__field {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Tasarımda bu buton hero'daki büyük butonlarla aynı ölçüde ama yarım punto küçük. */
+.waitlist__field .ft-btn {
+  font-size: 15.5px;
+}
+
+.waitlist__input {
+  flex: 1;
+  min-width: 190px;
+  background: var(--ft-surface);
+  border: 1px solid var(--ft-border-3);
+  color: var(--ft-text);
+  padding: 16px 17px;
+  border-radius: var(--ft-radius);
+  font-family: inherit;
+  font-size: 15.5px;
+  outline: none;
+  transition: border-color 0.18s var(--ft-ease);
+}
+
+.waitlist__input:focus {
+  border-color: var(--ft-green-hover);
+}
+
+.waitlist__input::placeholder {
+  color: var(--ft-muted);
+}
+
+.waitlist__roles {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 14px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Görsel olarak pill, semantik olarak radio grubu. */
+.waitlist__role input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.waitlist__role label {
+  display: inline-block;
+  background: transparent;
+  color: var(--ft-body-2);
+  border: 1px solid var(--ft-border-3);
+  padding: 9px 16px;
+  border-radius: 99px;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.18s var(--ft-ease), color 0.18s var(--ft-ease);
+}
+
+.waitlist__role input:checked + label {
+  background: var(--ft-bg-dark);
+  color: var(--ft-bg-2);
+}
+
+.waitlist__role input:focus-visible + label {
+  outline: 2px solid var(--ft-green-hover);
+  outline-offset: 3px;
+}
+
+.waitlist__error {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ft-warn);
+  margin-top: 12px;
+}
+
+.waitlist__kvkk {
+  margin-top: 14px;
+}
+
+.waitlist__success {
+  border: 1px solid var(--ft-border-success);
+  background: var(--ft-surface);
+  border-radius: 14px;
+  padding: 26px;
+  animation: ft-fade 0.4s both;
+}
+
+.waitlist__success-title {
+  font-size: 18.5px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--ft-green);
+}
+
+.waitlist__success-body {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ft-body-2);
+  margin-top: 8px;
+}

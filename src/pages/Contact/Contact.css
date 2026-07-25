@@ -1,0 +1,119 @@
+.contact {
+  padding-block: 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+  align-items: start;
+}
+
+.contact__heading {
+  margin-top: 14px;
+}
+
+.contact__channels {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
+
+.contact__channels li {
+  padding: 18px 0;
+  border-top: 1px solid var(--ft-border-2);
+}
+
+.contact__channels li:last-child {
+  border-bottom: 1px solid var(--ft-border-2);
+}
+
+.contact__channel-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ft-muted);
+}
+
+.contact__channel-email {
+  font-size: 17.5px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.contact__press {
+  background: var(--ft-bg-2);
+  border: 1px solid var(--ft-border-2);
+  border-radius: var(--ft-radius-md);
+  padding: 26px;
+  margin-top: 28px;
+}
+
+.contact__press-title {
+  font-size: 16.5px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.contact__press-body {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ft-muted);
+  margin: 8px 0 16px;
+}
+
+.contact__press-link {
+  display: inline-block;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.contact__form-title {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.contact__form-note {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ft-muted);
+  margin: 6px 0 24px;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact__error {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ft-warn);
+}
+
+.contact__submit {
+  padding: 15px;
+  margin-top: 4px;
+}
+
+.contact__success {
+  border: 1px solid var(--ft-border-success);
+  border-radius: 14px;
+  padding: 26px;
+  animation: ft-fade 0.4s both;
+}
+
+.contact__success-title {
+  font-size: 18.5px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--ft-green);
+}
+
+.contact__success-body {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ft-body-2);
+  margin-top: 8px;
+}

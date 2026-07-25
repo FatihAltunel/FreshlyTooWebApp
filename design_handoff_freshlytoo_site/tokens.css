@@ -1,0 +1,58 @@
+/* FreshlyToo web — design tokens.
+   Tasarımın tek doğruluk kaynağı. Hedef projede bunu global CSS'e alın
+   (veya Tailwind theme.extend / RN StyleSheet sabitlerine çevirin). */
+:root {
+  /* zemin */
+  --ft-bg:            #faf7ef; /* sayfa kremi */
+  --ft-bg-2:          #f4f1e6; /* şerit / ikincil blok */
+  --ft-bg-3:          #efeade; /* görsel kutusu */
+  --ft-bg-dark:       #14251a; /* footer, etki bölümü, Pro kartı */
+  --ft-surface:       #ffffff; /* beyaz kart, form */
+
+  /* metin */
+  --ft-text:          #14251a;
+  --ft-body:          #3d4c42;
+  --ft-body-2:        #4d5c51;
+  --ft-muted:         #5b6b5f; /* etiket/dipnot — krem üzerinde 5.28:1 */
+  --ft-on-dark:       #c8d5cb;
+  --ft-on-dark-muted: #9fb1a3;
+  --ft-on-dark-faint: #7d8a81;
+
+  /* marka */
+  --ft-green:         #14532d; /* buton, link, sayı vurgusu */
+  --ft-green-hover:   #15803d;
+  --ft-green-light:   #4ade80; /* koyu zeminde buton/bar */
+  --ft-green-light-2: #86efac; /* koyu zeminde hover */
+  --ft-green-pale:    #a7d3b4;
+  --ft-warn:          #b45309; /* geri sayım / "ŞİMDİ" etiketi */
+
+  /* kenarlık */
+  --ft-border:        #e6dfd0;
+  --ft-border-2:      #e0d9c9;
+  --ft-border-3:      #ded5c1;
+  --ft-border-strong: #d6cdb9;
+
+  /* tipografi */
+  --ft-font-sans:  'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --ft-font-serif: 'Instrument Serif', Georgia, serif;
+
+  /* geometri */
+  --ft-radius-sm:  10px;
+  --ft-radius:     11px; /* buton, input */
+  --ft-radius-md:  16px; /* kart */
+  --ft-radius-lg:  20px; /* büyük kart, görsel */
+  --ft-radius-xl:  22px;
+
+  --ft-shadow-hero:  0 26px 60px -26px rgba(20,37,26,.40);
+  --ft-shadow-card:  0 20px 44px -14px rgba(20,37,26,.32);
+  --ft-shadow-shot:  0 12px 30px -14px rgba(20,37,26,.35);
+
+  --ft-container:  1200px; /* SSS sayfası: 840px */
+  --ft-gutter:     32px;
+  --ft-section-y:  84px;  /* bölüm dikey ritmi 76–88px */
+
+  --ft-ease:       cubic-bezier(.2,.7,.2,1);
+}
+
+/* Google Fonts (head'e):
+   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"> */

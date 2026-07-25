@@ -1,0 +1,63 @@
+.impact {
+  background: var(--ft-bg-dark);
+  color: var(--ft-bg-2);
+}
+
+.impact__grid {
+  padding-block: 88px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 56px;
+  align-items: start;
+}
+
+.impact__heading {
+  margin-top: 14px;
+}
+
+.impact__body {
+  font-size: 17.5px;
+  line-height: 1.65;
+  color: var(--ft-on-dark);
+  margin-top: 20px;
+  max-width: 30em;
+}
+
+.impact__source {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ft-on-dark-faint);
+  margin-top: 18px;
+}
+
+.impact__stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.impact__stats > div + div {
+  margin-top: 14px;
+}
+
+.impact__row {
+  padding: 22px 0;
+  border-top: 1px solid var(--ft-on-dark-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  /* Etki satırları tasarımda daha kısa mesafeden ve biraz daha hızlı açılıyor. */
+  --ft-reveal-duration: 0.7s;
+}
+
+.impact__label {
+  font-size: 15.5px;
+  color: var(--ft-on-dark);
+  max-width: 20em;
+}
+
+.impact__value {
+  font-size: 34px;
+  line-height: 1;
+  white-space: nowrap;
+}

@@ -1,40 +1,33 @@
-import { useEffect, useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
 import Header from './layout/Header/Header.jsx'
 import Footer from './layout/Footer/Footer.jsx'
-import Hero from './sections/Hero/Hero.jsx'
-import Businesses from './sections/Businesses/Businesses.jsx'
-import Pricing from './sections/Pricing/Pricing.jsx'
-import OurStory from './sections/OurStory/OurStory.jsx'
-import FAQ from './sections/FAQ/FAQ.jsx'
-import ContactWaitlist from './sections/ContactWaitlist/ContactWaitlist.jsx'
-import { landingContent } from './i18n/content.js'
+import ScrollManager from './components/ScrollManager/ScrollManager.jsx'
+import Home from './pages/Home/Home.jsx'
+import Businesses from './pages/Businesses/Businesses.jsx'
+import Pricing from './pages/Pricing/Pricing.jsx'
+import Story from './pages/Story/Story.jsx'
+import Faq from './pages/Faq/Faq.jsx'
+import Contact from './pages/Contact/Contact.jsx'
+import { ROUTES } from './routes.js'
 
-function App() {
-  const [language, setLanguage] = useState('en')
-  const content = landingContent[language]
-
-  useEffect(() => {
-    document.documentElement.lang = language
-  }, [language])
-
+export default function App() {
   return (
     <>
-      <Header
-        language={language}
-        setLanguage={setLanguage}
-        content={content.header}
-      />
+      <ScrollManager />
+      <Header />
       <main>
-        <Hero id="hero" content={content.hero} />
-        <Businesses id="businesses" content={content.businesses} />
-        <Pricing id="pricing" content={content.pricing} />
-        <OurStory id="our-story" content={content.ourStory} />
-        <FAQ id="faq" content={content.faq} />
-        <ContactWaitlist id="contact" content={content.contactWaitlist} />
+        <Routes>
+          <Route path={ROUTES.home} element={<Home />} />
+          <Route path={ROUTES.businesses} element={<Businesses />} />
+          <Route path={ROUTES.pricing} element={<Pricing />} />
+          <Route path={ROUTES.story} element={<Story />} />
+          <Route path={ROUTES.faq} element={<Faq />} />
+          <Route path={ROUTES.contact} element={<Contact />} />
+          {/* Bilinmeyen yol ana sayfayı gösterir — ayrı bir 404 tasarımı yok. */}
+          <Route path="*" element={<Home />} />
+        </Routes>
       </main>
-      <Footer content={content.footer} navContent={content.header.nav} />
+      <Footer />
     </>
   )
 }
-
-export default App

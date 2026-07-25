@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Ortam değişkenleri — .env.example dışındaki her şey yerelde kalır
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

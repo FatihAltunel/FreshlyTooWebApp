@@ -1,0 +1,76 @@
+/* FreshlyToo web — design tokens.
+   Tasarımın tek doğruluk kaynağı (design_handoff_freshlytoo_site/tokens.css).
+   Yeni renk / radius / gölge eklemeyin; hepsi burada tanımlı. */
+:root {
+  /* zemin */
+  --ft-bg:            #faf7ef; /* sayfa kremi */
+  --ft-bg-2:          #f4f1e6; /* şerit / ikincil blok */
+  --ft-bg-3:          #efeade; /* görsel kutusu */
+  --ft-bg-dark:       #14251a; /* footer, etki bölümü, Pro kartı */
+  --ft-surface:       #ffffff; /* beyaz kart, form */
+
+  /* metin */
+  --ft-text:          #14251a;
+  --ft-body:          #3d4c42;
+  --ft-body-2:        #4d5c51;
+  --ft-muted:         #5b6b5f; /* etiket/dipnot — krem üzerinde 5.28:1 */
+  --ft-on-dark:       #c8d5cb;
+  --ft-on-dark-muted: #9fb1a3;
+  --ft-on-dark-faint: #7d8a81;
+
+  /* marka */
+  --ft-green:         #14532d; /* buton, link, sayı vurgusu */
+  --ft-green-hover:   #15803d;
+  --ft-green-light:   #4ade80; /* koyu zeminde buton/bar */
+  --ft-green-light-2: #86efac; /* koyu zeminde hover */
+  --ft-green-pale:    #a7d3b4;
+  --ft-warn:          #b45309; /* geri sayım / "ŞİMDİ" etiketi */
+
+  /* kenarlık */
+  --ft-border:        #e6dfd0;
+  --ft-border-2:      #e0d9c9;
+  --ft-border-3:      #ded5c1;
+  --ft-border-strong: #d6cdb9;
+
+  /* tipografi */
+  --ft-font-sans:  'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --ft-font-serif: 'Instrument Serif', Georgia, serif;
+
+  /* geometri */
+  --ft-radius-sm:  10px;
+  --ft-radius:     11px; /* buton, input */
+  --ft-radius-md:  16px; /* kart */
+  --ft-radius-lg:  20px; /* büyük kart, görsel */
+  --ft-radius-xl:  22px;
+
+  --ft-shadow-hero:  0 26px 60px -26px rgba(20, 37, 26, 0.4);
+  --ft-shadow-card:  0 20px 44px -14px rgba(20, 37, 26, 0.32);
+  --ft-shadow-shot:  0 12px 30px -14px rgba(20, 37, 26, 0.35);
+
+  --ft-container:  1200px; /* SSS sayfası: 840px */
+  --ft-gutter:     32px;
+  --ft-section-y:  84px;  /* bölüm dikey ritmi 76–88px */
+
+  --ft-ease:       cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* --- Prototipte kullanılan, handoff tokens.css'inde tanımlı olmayan değerler.
+         Hex'ler `FreshlyToo Site.dc.html`ten birebir alındı; hiçbiri uydurma değil.
+         Tek doğruluk kaynağı bozulmasın diye bileşenlere gömmek yerine buraya alındı. --- */
+  --ft-on-dark-strong:  #e4ebe5; /* koyu zeminde güçlü gövde (footer sloganı, Pro maddeleri) */
+  --ft-dot:             #cfc6b2; /* marquee ayraç noktası */
+  --ft-border-faint:    #ece5d5; /* örnek hesap satır ayracı */
+  --ft-border-success:  #bfe0c8; /* bekleme listesi teşekkür kartı */
+  --ft-on-light-green:  #0a1f0b; /* açık yeşil buton üstü metin */
+  --ft-chart-1:         #cfd9cd; /* talep grafiği — düşük */
+  --ft-chart-2:         #a7c4ae; /* talep grafiği — orta */
+  --ft-selection:       #dcfce7;
+
+  --ft-shadow-phone: 0 30px 60px -24px rgba(20, 37, 26, 0.45); /* uygulama bölümü telefonu */
+  --ft-shadow-wide:  0 24px 54px -26px rgba(20, 37, 26, 0.3);  /* hikâye sayfası geniş foto */
+  --ft-shadow-biz:   0 26px 60px -26px rgba(20, 37, 26, 0.35); /* işletme hero görseli */
+  --ft-shadow-pro:   0 24px 54px -24px rgba(20, 37, 26, 0.5);  /* fiyatlandırma Pro kartı */
+
+  --ft-on-dark-border:        rgba(244, 241, 230, 0.16);
+  --ft-on-dark-border-faint:  rgba(244, 241, 230, 0.12);
+  --ft-on-dark-border-strong: rgba(244, 241, 230, 0.28);
+}

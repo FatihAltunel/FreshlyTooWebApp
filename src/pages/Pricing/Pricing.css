@@ -1,0 +1,131 @@
+.pricing-intro {
+  padding: 76px var(--ft-gutter) 24px;
+  text-align: center;
+}
+
+.pricing-intro__heading {
+  font-size: clamp(36px, 4.8vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  font-weight: 600;
+  margin: 16px auto 0;
+  max-width: 19em;
+}
+
+.pricing-intro__body {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ft-body-2);
+  margin: 18px auto 0;
+  max-width: 30em;
+}
+
+.pricing-plans {
+  padding: 44px var(--ft-gutter) 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.pricing-card {
+  position: relative;
+  background: var(--ft-surface);
+  border: 1px solid var(--ft-border);
+  border-radius: var(--ft-radius-lg);
+  padding: 32px;
+}
+
+.pricing-card--featured {
+  background: var(--ft-bg-dark);
+  color: var(--ft-bg-2);
+  border-color: transparent;
+  box-shadow: var(--ft-shadow-pro);
+}
+
+.pricing-card__badge {
+  position: absolute;
+  top: -11px;
+  left: 32px;
+  background: var(--ft-green-light);
+  color: var(--ft-on-light-green);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 11px;
+  border-radius: 6px;
+}
+
+.pricing-card__name {
+  font-size: 16.5px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.pricing-card__price {
+  font-size: 48px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-top: 14px;
+}
+
+.pricing-card__period {
+  font-family: var(--ft-font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ft-muted);
+}
+
+.pricing-card--featured .pricing-card__period {
+  color: var(--ft-on-dark-muted);
+}
+
+.pricing-card__description {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ft-muted);
+  margin-top: 12px;
+}
+
+.pricing-card--featured .pricing-card__description {
+  color: var(--ft-on-dark);
+}
+
+.pricing-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-top: 24px;
+  font-size: 14.5px;
+  color: var(--ft-body);
+}
+
+.pricing-card--featured .pricing-card__features {
+  color: var(--ft-on-dark-strong);
+}
+
+.pricing-card__cta {
+  margin-top: 26px;
+}
+
+.pricing-strip {
+  border-top: 1px solid var(--ft-border);
+  background: var(--ft-bg-2);
+}
+
+.pricing-strip__inner {
+  padding-block: 56px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pricing-strip__text {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ft-body);
+  max-width: 36em;
+}

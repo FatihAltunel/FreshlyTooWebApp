@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Global reset + tasarımda tekrar eden ilkel bileşenler.
+   Bölüme özgü her şey ilgili klasördeki .css dosyasında durur.
+   Fontlar index.html'de preconnect + display=swap ile yükleniyor. */
 
 *,
 *::before,
@@ -12,60 +14,55 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-family-base);
-  font-weight: var(--font-weight-regular);
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-  background-color: var(--color-bg-main);
+  background: var(--ft-bg);
+  color: var(--ft-text);
+  font-family: var(--ft-font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
 h2,
 h3,
-p {
+p,
+figure {
   margin: 0;
-}
-
-h1,
-h2,
-h3 {
-  color: var(--color-text-primary);
-}
-
-h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.15;
-  font-weight: var(--font-weight-bold);
-}
-
-h2 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: var(--font-weight-bold);
-}
-
-h3 {
-  font-size: 1.25rem;
-  font-weight: var(--font-weight-semibold);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 ul,
 ol {
   margin: 0;
   padding: 0;
-}
-
-li {
   list-style: none;
 }
 
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--ft-green);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--ft-green-hover);
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: #dcfce7;
+}
+
 a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--ft-green-hover);
   outline-offset: 3px;
 }
 
@@ -73,182 +70,323 @@ button:focus-visible {
   min-height: 100dvh;
 }
 
-.container {
-  width: min(100% - 2rem, var(--max-content-width));
-  margin-inline: auto;
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: rgba(250, 247, 239, 0.95);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 48px;
-  padding: 0 var(--space-3);
-  border-radius: var(--radius-pill);
-  border: 1px solid transparent;
-  font-weight: var(--font-weight-medium);
-  transition:
-    transform var(--duration-fast) var(--easing-standard),
-    box-shadow var(--duration-fast) var(--easing-standard),
-    background-color var(--duration-fast) var(--easing-standard);
-}
-
-.button--primary {
-  color: var(--color-bg-main);
-  background-color: var(--color-primary-green);
-}
-
-.button--secondary {
-  color: var(--color-primary-green);
-  background-color: transparent;
-  border-color: var(--color-primary-green);
-}
-
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lifted);
-}
-
-.section {
-  padding-block: var(--space-5);
-}
-
-.section--alt {
-  background-color: var(--color-bg-alt);
-}
-
-.section-header {
-  margin-bottom: var(--space-3);
-}
-
-.card-grid {
-  display: grid;
-  gap: var(--space-2);
-}
-
-.feature-card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-soft);
-  padding: var(--space-3);
-}
-
-.feature-card p {
-  margin-top: var(--space-1);
-}
-
-.feature-bullet-list {
-  display: grid;
-  gap: 0.5rem;
-  margin-top: var(--space-1);
-}
-
-.feature-bullet-list li {
-  position: relative;
-  padding-left: 1rem;
-}
-
-.feature-bullet-list li::before {
-  content: '';
+.sr-only {
   position: absolute;
-  top: 0.55rem;
-  left: 0;
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 50%;
-  background-color: var(--color-primary-green);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.stat-grid {
+/* ---------- animasyonlar ---------- */
+
+@keyframes ft-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ft-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ft-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes ft-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- düzen ---------- */
+
+.ft-container {
+  max-width: var(--ft-container);
+  margin: 0 auto;
+  padding: 0 var(--ft-gutter);
+}
+
+.ft-container--narrow {
+  max-width: 840px;
+}
+
+.ft-section {
+  padding-block: var(--ft-section-y);
+}
+
+.ft-grid {
   display: grid;
-  gap: var(--space-2);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 56px;
 }
 
-.stat-badge {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: var(--space-3);
-  background-color: var(--color-surface);
-  box-shadow: var(--shadow-soft);
+.ft-rule-list {
+  display: flex;
+  flex-direction: column;
 }
 
-.stat-badge__value {
-  color: var(--color-primary-green);
-  font-size: 1.5rem;
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-1);
+/* ---------- tipografi ---------- */
+
+.ft-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ft-muted);
 }
 
-.site-footer {
-  padding-block: var(--space-5);
-  border-top: 1px solid var(--color-border);
+.ft-eyebrow--green {
+  color: var(--ft-green-hover);
 }
 
-.footer-grid {
-  display: grid;
-  gap: var(--space-3);
+.ft-eyebrow--light {
+  color: var(--ft-green-light-2);
 }
 
-.footer-column {
-  display: grid;
-  gap: var(--space-1);
+.ft-eyebrow--warn {
+  color: var(--ft-warn);
 }
 
-.footer-grid ul {
-  display: grid;
-  gap: var(--space-1);
-  margin-top: var(--space-1);
+.ft-h1 {
+  font-size: clamp(40px, 4.9vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-weight: 600;
 }
 
-.footer-note {
-  font-size: 0.9rem;
+.ft-page-h1 {
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  font-weight: 600;
 }
 
-.footer-bottom {
-  margin-top: var(--space-3);
-  padding-top: var(--space-2);
-  border-top: 1px solid var(--color-border);
+.ft-h2 {
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 600;
 }
 
-.fade-in-section {
+.ft-serif {
+  font-family: var(--ft-font-serif);
+  font-weight: 400;
+}
+
+.ft-accent {
+  font-family: var(--ft-font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--ft-green-hover);
+}
+
+.ft-accent--plain {
+  color: inherit;
+}
+
+.ft-accent--light {
+  color: var(--ft-green-light);
+}
+
+.ft-lede {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ft-body-2);
+  max-width: 29em;
+  text-wrap: pretty;
+}
+
+.ft-note {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ft-muted);
+}
+
+/* ---------- butonlar ---------- */
+
+.ft-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--ft-radius);
+  padding: 14px 24px;
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.18s var(--ft-ease), border-color 0.18s var(--ft-ease),
+    color 0.18s var(--ft-ease);
+}
+
+.ft-btn--lg {
+  padding: 16px 26px;
+  font-size: 16px;
+}
+
+.ft-btn--sm {
+  padding: 11px 19px;
+  font-size: 14.5px;
+  border-radius: 9px;
+}
+
+.ft-btn--block {
+  width: 100%;
+  padding: 14px;
+}
+
+.ft-btn--primary {
+  background: var(--ft-green);
+  color: #fff;
+}
+
+.ft-btn--primary:hover {
+  background: var(--ft-green-hover);
+  color: #fff;
+}
+
+.ft-btn--ghost {
+  background: none;
+  color: var(--ft-text);
+  border-color: var(--ft-border-strong);
+}
+
+.ft-btn--ghost:hover {
+  border-color: var(--ft-text);
+  color: var(--ft-text);
+}
+
+/* Beyaz kart üstünde duran ikincil buton — zemini sayfa kremi. */
+.ft-btn--soft {
+  background: var(--ft-bg);
+  color: var(--ft-text);
+  border-color: var(--ft-border-strong);
+}
+
+.ft-btn--soft:hover {
+  border-color: var(--ft-text);
+  color: var(--ft-text);
+}
+
+.ft-btn--light {
+  background: var(--ft-green-light);
+  color: #0a1f0b;
+}
+
+.ft-btn--light:hover {
+  background: var(--ft-green-light-2);
+  color: #0a1f0b;
+}
+
+.ft-btn--outline-light {
+  background: none;
+  color: var(--ft-bg-2);
+  border-color: rgba(244, 241, 230, 0.28);
+}
+
+.ft-btn--outline-light:hover {
+  border-color: var(--ft-bg-2);
+  color: var(--ft-bg-2);
+}
+
+.ft-btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- form alanları ---------- */
+
+.ft-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ft-body);
+  margin-bottom: 6px;
+}
+
+.ft-input {
+  width: 100%;
+  background: var(--ft-bg);
+  border: 1px solid var(--ft-border-3);
+  color: var(--ft-text);
+  padding: 13px 15px;
+  border-radius: var(--ft-radius-sm);
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.18s var(--ft-ease);
+}
+
+.ft-input:focus {
+  border-color: var(--ft-green-hover);
+}
+
+.ft-input::placeholder {
+  color: var(--ft-muted);
+}
+
+textarea.ft-input {
+  resize: vertical;
+}
+
+/* ---------- kartlar ---------- */
+
+.ft-card {
+  background: var(--ft-surface);
+  border: 1px solid var(--ft-border);
+  border-radius: var(--ft-radius-lg);
+  padding: 32px;
+}
+
+.ft-panel {
+  background: var(--ft-bg);
+  border: 1px solid var(--ft-border-2);
+  border-radius: var(--ft-radius-md);
+}
+
+/* ---------- scroll reveal ---------- */
+
+.ft-reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity var(--duration-base) var(--easing-standard),
-    transform var(--duration-base) var(--easing-standard);
+  transform: translateY(var(--ft-reveal-distance, 26px));
+  transition: opacity var(--ft-reveal-duration, 0.8s) var(--ft-ease) var(--ft-reveal-delay, 0s),
+    transform var(--ft-reveal-duration, 0.8s) var(--ft-ease) var(--ft-reveal-delay, 0s);
 }
 
-.fade-in-section.is-visible {
+.ft-reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
-@media (min-width: 768px) {
-  .card-grid,
-  .stat-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .footer-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
+/* ---------- hareket azaltma ---------- */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -260,5 +398,11 @@ button:focus-visible {
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+
+  /* Reveal edilen içerik hiçbir koşulda gizli kalmasın. */
+  .ft-reveal {
+    opacity: 1;
+    transform: none;
   }
 }

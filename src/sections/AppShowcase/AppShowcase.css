@@ -1,0 +1,68 @@
+.app-showcase {
+  padding-block: 88px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+  align-items: center;
+}
+
+.app-showcase__media {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Telefon üstten 420px görünüp alta doğru krem gradyanla siliniyor. */
+.app-showcase__phone {
+  width: 290px;
+  height: 420px;
+  border-radius: 26px 26px 0 0;
+  overflow: hidden;
+  background: var(--ft-bg-dark);
+  padding: 9px 9px 0;
+  box-shadow: var(--ft-shadow-phone);
+}
+
+.app-showcase__phone img {
+  width: 100%;
+  display: block;
+  border-radius: 19px 19px 0 0;
+}
+
+.app-showcase__fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(250, 247, 239, 0), var(--ft-bg));
+}
+
+.app-showcase__heading {
+  margin-top: 14px;
+}
+
+.app-showcase__list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 28px;
+}
+
+.app-showcase__list li {
+  padding: 18px 0;
+  border-top: 1px solid var(--ft-border-2);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.app-showcase__list li:last-child {
+  border-bottom: 1px solid var(--ft-border-2);
+}
+
+.app-showcase__list strong {
+  font-weight: 600;
+}
+
+.app-showcase__list span {
+  color: var(--ft-muted);
+}

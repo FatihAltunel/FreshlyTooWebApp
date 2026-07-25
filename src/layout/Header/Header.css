@@ -1,109 +1,122 @@
-.header-nav {
-  display: grid;
-  gap: 0.625rem;
-  padding-block: 0.625rem;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(250, 247, 239, 0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--ft-border);
 }
 
-.header-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  color: var(--color-primary-green);
-  font-weight: var(--font-weight-bold);
+.site-header__progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 0;
+  background: var(--ft-green-hover);
+  transition: width 0.12s linear;
 }
 
-.header-logo__mark {
-  width: 1.35rem;
-  height: 1.35rem;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 30% 35%, #9ccc65, var(--color-primary-green) 65%);
-  box-shadow: var(--shadow-soft);
-}
-
-.header-logo__text {
-  font-size: 0.9rem;
-}
-
-.header-nav__links {
+.site-header__inner {
+  /* Tasarımda sabit 74px; dar ekranda nav sarınca kırpılmasın diye min-height. */
+  min-height: 74px;
   display: flex;
   align-items: center;
-  gap: 0.375rem;
-  overflow-x: auto;
-  scrollbar-width: none;
+  gap: 26px;
+  flex-wrap: wrap;
+  padding-block: 8px;
 }
 
-.header-nav__links::-webkit-scrollbar {
-  display: none;
-}
-
-.header-nav__links li {
-  flex: 0 0 auto;
-}
-
-.header-nav__links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.25rem;
-  padding-inline: 0.75rem;
-  border-radius: var(--radius-pill);
-  color: var(--color-text-primary);
-  font-size: 0.9rem;
-  font-weight: var(--font-weight-medium);
-  white-space: nowrap;
-  transition:
-    color var(--duration-fast) var(--easing-standard),
-    background-color var(--duration-fast) var(--easing-standard);
-}
-
-.header-nav__links a:hover,
-.header-nav__links a:focus-visible {
-  color: var(--color-primary-green);
-  background-color: var(--color-bg-alt);
-}
-
-.header-nav__actions {
+.site-header__logo {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
+  gap: 12px;
+  color: var(--ft-text);
 }
 
-.header-nav__actions .button {
-  min-height: 2.25rem;
-  padding-inline: 0.875rem;
-  font-size: 0.85rem;
+.site-header__logo:hover {
+  color: var(--ft-text);
 }
 
-.header-language-toggle {
-  border-color: var(--color-border);
+.site-header__logo img {
+  border-radius: var(--ft-radius-sm);
+  display: block;
 }
 
-.header-language-toggle[aria-pressed='true'] {
-  color: var(--color-bg-main);
-  background-color: var(--color-primary-green);
-  border-color: var(--color-primary-green);
+.wordmark {
+  font-size: 19.5px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--ft-text);
 }
 
-@media (min-width: 768px) {
-  .header-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-2);
-    padding-block: 0.5rem;
+.wordmark__soft {
+  font-weight: 400;
+  color: var(--ft-muted);
+}
+
+.site-header__nav {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.site-header__link {
+  padding: 9px 13px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ft-body);
+  transition: background-color 0.18s var(--ft-ease), color 0.18s var(--ft-ease);
+}
+
+.site-header__link:hover {
+  background: var(--ft-bg-3);
+  color: var(--ft-text);
+}
+
+.site-header__link.is-active {
+  color: var(--ft-text);
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Dil değiştirici tasarımda yok; nav ritmini bozmayan tipografik bir ek. */
+.site-header__lang {
+  background: none;
+  border: 1px solid var(--ft-border-strong);
+  border-radius: 8px;
+  padding: 8px 11px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--ft-body);
+  cursor: pointer;
+  transition: border-color 0.18s var(--ft-ease), color 0.18s var(--ft-ease);
+}
+
+.site-header__lang:hover {
+  border-color: var(--ft-text);
+  color: var(--ft-text);
+}
+
+@media (max-width: 900px) {
+  .site-header__inner {
+    gap: 14px;
   }
 
-  .header-nav__links {
-    flex-wrap: nowrap;
-    overflow-x: visible;
-    justify-content: center;
-    gap: 0.25rem;
+  .site-header__nav {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
   }
 
-  .header-nav__actions {
-    justify-content: flex-end;
-    flex: 0 0 auto;
+  .site-header__actions {
+    margin-left: auto;
   }
 }

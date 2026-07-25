@@ -1,0 +1,71 @@
+.steps {
+  padding-block: 88px;
+}
+
+.steps__intro {
+  max-width: 26em;
+}
+
+.steps__heading {
+  margin-top: 14px;
+  font-size: clamp(30px, 3.6vw, 46px);
+  line-height: 1.04;
+}
+
+.steps__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 44px;
+}
+
+.steps__frame {
+  height: 460px;
+  border-radius: var(--ft-radius-md);
+  overflow: hidden;
+  background: var(--ft-bg-3);
+  border: 1px solid var(--ft-border-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 0;
+}
+
+/* Telefon ekranı kırpılmadan, kutuyu boydan boya dolduracak şekilde. */
+.steps__frame img {
+  height: 100%;
+  width: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: var(--ft-shadow-shot);
+  transition: transform 0.9s var(--ft-ease);
+}
+
+.steps__frame:hover img {
+  transform: scale(1.04);
+}
+
+.steps__caption {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  margin-top: 20px;
+}
+
+.steps__number {
+  font-size: 22px;
+  color: var(--ft-green-hover);
+}
+
+.steps__title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.steps__description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ft-muted);
+  margin-top: 6px;
+}
