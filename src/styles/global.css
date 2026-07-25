@@ -386,6 +386,18 @@ textarea.ft-input {
   transform: none;
 }
 
+/* ---------- dar ekran ritmi ---------- */
+
+/* Tasarımda mobil breakpoint yok; 32px gutter ve 88px dikey ritim telefonda
+   ekranın çoğunu boşluğa harcıyordu. Yalnızca ölçek daralıyor, düzen aynı. */
+@media (max-width: 560px) {
+  :root {
+    --ft-gutter: 20px;
+    --ft-section-y: 56px;
+    --ft-section-lg: 60px;
+  }
+}
+
 /* ---------- hareket azaltma ---------- */
 
 @media (prefers-reduced-motion: reduce) {

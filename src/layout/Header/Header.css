@@ -15,6 +15,7 @@
   width: 0;
   background: var(--ft-green-hover);
   transition: width 0.12s linear;
+  z-index: 1;
 }
 
 .site-header__inner {
@@ -23,7 +24,6 @@
   display: flex;
   align-items: center;
   gap: 26px;
-  flex-wrap: wrap;
   padding-block: 8px;
 }
 
@@ -86,8 +86,9 @@
   gap: 10px;
 }
 
-/* Dil değiştirici tasarımda yok; nav ritmini bozmayan tipografik bir ek. */
-.site-header__lang {
+/* Dil değiştirici ve menü düğmesi tasarımda yok; nav ritmini bozmayan,
+   ikon yerine metne dayanan küçük eklemeler. */
+.site-header__pill {
   background: none;
   border: 1px solid var(--ft-border-strong);
   border-radius: 8px;
@@ -97,16 +98,25 @@
   letter-spacing: 0.1em;
   color: var(--ft-body);
   cursor: pointer;
+  white-space: nowrap;
   transition: border-color 0.18s var(--ft-ease), color 0.18s var(--ft-ease);
 }
 
-.site-header__lang:hover {
+.site-header__pill:hover {
   border-color: var(--ft-text);
   color: var(--ft-text);
 }
 
-@media (max-width: 900px) {
+/* Geniş ekranda menü düğmesi ve panel içindeki CTA gizli. */
+.site-header__menu-toggle,
+.site-header__nav-cta {
+  display: none;
+}
+
+/* Nav tek satıra sığmayı bırakıyor: kendi satırına iniyor. */
+@media (max-width: 1020px) {
   .site-header__inner {
+    flex-wrap: wrap;
     gap: 14px;
   }
 
@@ -118,5 +128,60 @@
 
   .site-header__actions {
     margin-left: auto;
+  }
+}
+
+/* Nav satırı da sarmaya başlıyor: açılır panele geçiyoruz. */
+@media (max-width: 700px) {
+  .site-header__inner {
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+
+  .site-header__menu-toggle {
+    display: inline-flex;
+  }
+
+  /* Çubuktaki CTA'ya yer yok; panelin altına iniyor. */
+  .site-header__cta {
+    display: none;
+  }
+
+  .site-header__nav {
+    order: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+    width: auto;
+    margin: 0;
+    padding: 6px var(--ft-gutter) 20px;
+    background: var(--ft-bg);
+    border-bottom: 1px solid var(--ft-border);
+    box-shadow: var(--ft-shadow-shot);
+  }
+
+  .site-header__nav.is-open {
+    display: flex;
+  }
+
+  .site-header__link {
+    padding: 14px 0;
+    border-radius: 0;
+    border-bottom: 1px solid var(--ft-border-2);
+    font-size: 16.5px;
+  }
+
+  .site-header__link:hover {
+    background: none;
+  }
+
+  .site-header__nav-cta {
+    display: inline-flex;
+    margin-top: 18px;
   }
 }

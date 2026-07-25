@@ -19,6 +19,8 @@ export const siteContent = {
       languageLabel: 'EN',
       languageAriaLabel: 'Switch to English',
       navAriaLabel: 'Ana menü',
+      menuOpen: 'Menü',
+      menuClose: 'Kapat',
     },
     footer: {
       tagline: 'Taze kalanı, hâlâ tazeyken buluşturuyoruz.',
@@ -450,6 +452,8 @@ export const siteContent = {
       languageLabel: 'TR',
       languageAriaLabel: 'Türkçeye geç',
       navAriaLabel: 'Main menu',
+      menuOpen: 'Menu',
+      menuClose: 'Close',
     },
     footer: {
       tagline: 'We bring what is left over to people while it is still fresh.',

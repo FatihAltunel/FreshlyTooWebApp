@@ -67,9 +67,36 @@
   object-fit: cover;
 }
 
-/* Kutular tek sütuna indiğinde kaydırmanın anlamı kalmıyor. */
-@media (max-width: 480px) {
+/* Dar ekranda dört kutu alt alta ~1000px tutuyordu; iki sütuna alınıp
+   yükseklik düşürüldü, kaydırma ritmi korundu. */
+@media (max-width: 700px) {
+  .hero-manifesto__inner {
+    padding-top: 56px;
+  }
+
+  /* Sağa yaslı iki buton dar ekranda ragged duruyordu; satırı paylaşıyorlar,
+     sığmazlarsa tam genişlikte alt alta geçiyorlar. */
+  .hero-manifesto__actions {
+    justify-content: flex-start;
+  }
+
+  .hero-manifesto__actions .ft-btn {
+    flex: 1 1 auto;
+  }
+
+  .hero-manifesto__strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 44px;
+    padding-bottom: 64px;
+  }
+
+  .hero-manifesto__frame,
+  .hero-manifesto__frame img {
+    height: 168px;
+  }
+
   .hero-manifesto__frame:nth-child(2n) {
-    transform: none;
+    transform: translateY(-14px);
   }
 }

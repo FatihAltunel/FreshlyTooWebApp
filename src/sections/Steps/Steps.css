@@ -1,5 +1,5 @@
 .steps {
-  padding-block: 88px;
+  padding-block: var(--ft-section-lg);
 }
 
 .steps__intro {
@@ -68,4 +68,11 @@
   line-height: 1.6;
   color: var(--ft-muted);
   margin-top: 6px;
+}
+
+/* Tek sütuna inince üç adet 460px kutu sayfayı gereksiz uzatıyordu. */
+@media (max-width: 560px) {
+  .steps__frame {
+    height: 380px;
+  }
 }
