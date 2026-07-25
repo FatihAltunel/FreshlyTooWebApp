@@ -9,13 +9,19 @@ import Story from './pages/Story/Story.jsx'
 import Faq from './pages/Faq/Faq.jsx'
 import Contact from './pages/Contact/Contact.jsx'
 import { ROUTES } from './routes.js'
+import { useLanguage } from './i18n/LanguageContext.jsx'
 
 export default function App() {
+  const { content } = useLanguage()
+
   return (
     <>
       <ScrollManager />
+      <a className="ft-skip-link" href="#main">
+        {content.header.skipToContent}
+      </a>
       <Header />
-      <main>
+      <main id="main" tabIndex={-1}>
         <Routes>
           <Route path={ROUTES.home} element={<Home />} />
           <Route path={ROUTES.businesses} element={<Businesses />} />

@@ -21,6 +21,7 @@ export const siteContent = {
       navAriaLabel: 'Ana menü',
       menuOpen: 'Menü',
       menuClose: 'Kapat',
+      skipToContent: 'İçeriğe geç',
     },
     footer: {
       tagline: 'Taze kalanı, hâlâ tazeyken buluşturuyoruz.',
@@ -454,6 +455,7 @@ export const siteContent = {
       navAriaLabel: 'Main menu',
       menuOpen: 'Menu',
       menuClose: 'Close',
+      skipToContent: 'Skip to content',
     },
     footer: {
       tagline: 'We bring what is left over to people while it is still fresh.',

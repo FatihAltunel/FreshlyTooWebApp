@@ -32,9 +32,12 @@
   --ft-border-3:      #ded5c1;
   --ft-border-strong: #d6cdb9;
 
-  /* tipografi */
-  --ft-font-sans:  'Instrument Sans', system-ui, -apple-system, sans-serif;
-  --ft-font-serif: 'Instrument Serif', Georgia, serif;
+  /* tipografi
+     Handoff Instrument Sans + Instrument Serif diyordu; Instrument Serif italik
+     şu an AI ile üretilmiş landing page'lerin imzası hâline geldiği için
+     bilinçli olarak değiştirildi. Bkz. docs/tasarim-uygunluk.md */
+  --ft-font-sans:  'Archivo', system-ui, -apple-system, sans-serif;
+  --ft-font-serif: 'Fraunces', Georgia, serif;
 
   /* geometri */
   --ft-radius-sm:  10px;

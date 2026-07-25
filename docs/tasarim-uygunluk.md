@@ -72,6 +72,29 @@ README'si de "`#5b6b5f`ten daha açık gri kullanmayın" diyor (madde 7). Üçü
 **Görünür fark:** bu üç etiket prototiptekinden bir tık koyu. Bilinçli; tasarım tarafı ısrar ederse
 tek değişiklik `tokens.css`e `--ft-muted-2: #6b7a70` eklemek olur.
 
+### 3b. Fontlar değiştirildi — Instrument Sans/Serif yerine Archivo + Fraunces
+
+**Bu, handoff'un en sert kuralına bilinçli bir istisnadır** ("yeni font uydurma, hepsi
+`tokens.css`'te"). Gerekçe: tasarım gözden geçirilirken sitenin "AI ile üretilmiş" göründüğü
+geri bildirimi geldi. Instrument Serif italik, 2025–2026'da AI landing page üreticilerinin
+(v0, Lovable vb.) varsayılan display fontu hâline geldi ve sektörde tanınan bir imza.
+
+Yerine:
+
+| Rol | Eski | Yeni |
+|---|---|---|
+| Gövde / arayüz | Instrument Sans | **Archivo** — sağlam grotesk, hafif sıkışık; Türkçenin uzun kelimelerine iyi geliyor |
+| Display vurgu, büyük sayılar | Instrument Serif | **Fraunces** — sıcak, el işi hissi veren italikler |
+
+İkisi de Google Fonts, `display=swap`, Latin Extended (ı İ ş ğ ç ö ü) ve `₺` glifi tam.
+Doğrulandı: her iki font da gerçekten yükleniyor, fallback'e düşmüyor.
+
+Ölçüler değişmedi — tasarımın negatif tracking değerleri (−.045em / −.04em) Archivo'da da
+oturuyor. Tek yan etki: Archivo, Instrument Sans'tan bir tık geniş olduğu için bazı H2'ler
+tek satır yerine iki satıra sarıyor (örn. "Sorun kıtlık değil, zamanlama."). Ritmi bozmuyor.
+
+Geri dönmek istenirse tek yer: `src/styles/tokens.css` içindeki `--ft-font-sans` / `--ft-font-serif`.
+
 ### 4. `tokens.css` prototipin kullandığı 16 değeri içermiyordu
 
 Handoff'un `tokens.css`i eksikti. Prototipte geçen ama tokenlarda tanımsız olan değerler
@@ -83,13 +106,27 @@ toplandı. Hiçbiri uydurma değil, hepsi `.dc.html`ten birebir:
 
 ### 5. Responsive eklemeler (prototipte breakpoint yok)
 
-Handoff "mobil için ayrı breakpoint gerekmiyor, auto-fit yeterli" diyor. Üç yerde yetmiyordu:
+Handoff "mobil için ayrı breakpoint gerekmiyor, auto-fit yeterli" diyor. Bu, header'da
+doğru çıkmadı: gerçek telefonda header ~450px yer kaplıyordu (logo bir satır, EN + CTA
+sağa yaslı ikinci satır, nav 3+3 sararak iki satır daha).
 
-- **Header:** sabit `height: 74px`, nav sarınca içeriği kırpıyordu → `min-height` + sarma;
-  900px altında nav kendi satırına iniyor.
-- **Hero mini kartı:** `left: -42px`, grid tek kolona düşünce 32px'lik gutter'ı aşıp yatay
-  kaydırma yaratıyordu → 820px altında -16px / 184px.
+- **Header — iki kırılma noktası.** 1020px altında nav kendi satırına iniyor (tablet, 106px).
+  700px altında nav açılır panele giriyor: çubukta `logo · EN · Menü` kalıyor (75px), panelde
+  bağlantılar alt alta ve en altta tam genişlikte CTA. Menü düğmesi metin tabanlı
+  (**Menü** / **Kapat**) — tasarım tipografi ağırlıklı olduğu ve ikon seti eklemek yasak
+  olduğu için ikon kullanılmadı. `aria-expanded` + `aria-controls` bağlı; bağlantıya
+  tıklayınca ve Esc ile kapanıyor.
+- **Hero mini kartı (editoryal):** `left: -42px`, grid tek kolona düşünce 32px'lik gutter'ı
+  aşıp yatay kaydırma yaratıyordu → 820px altında -16px / 184px.
+- **Manifesto fotoğraf şeridi:** dört kutu alt alta ~1000px tutuyordu → 700px altında 2×2
+  grid, 168px yükseklik; kaydırma ritmi (`translateY`) korundu.
+- **Üç adım kutuları:** 560px altında 460px → 380px.
 - **Yol haritası:** `130px 1fr` grid'i 560px altında tek kolona iniyor.
+- **Ölçek:** 560px altında gutter 32px → 20px, bölüm ritmi 88px → 60px. Token üstünden,
+  düzen değişmiyor.
+
+Doğrulandı: 360 / 390 / 430 / 700 / 768 / 1020 / 1440px'in her birinde altı rota da
+yatay taşmasız ve konsol hatasız.
 
 ### 6. Marquee döngüsü düzeltildi
 
@@ -124,6 +161,19 @@ Backend bağlandığı için gerekli oldu:
   başarı kartı, bekleme listesinin teşekkür kartıyla aynı dille kuruldu.
 - İletişim formuna KVKK satırı (tasarımda yalnızca bekleme listesinde vardı).
 - Sayfa başına `<title>`.
+
+Tasarımla ilgisi olmayan, eksik olduğu için eklenenler:
+
+- **Favicon.** `public/favicon.svg` hâlâ Vite şablonunun mor logosuydu — sekmede o görünüyordu.
+  Uygulama ikonundan `favicon.png` (180px) üretildi, `apple-touch-icon` olarak da bağlandı.
+  Vite şablonundan kalan `favicon.svg` ve kullanılmayan `icons.svg` silindi.
+- **Paylaşım kartı.** Open Graph + Twitter etiketleri ve `public/og.jpg` (1200×630).
+  Site WhatsApp'ta paylaşılacağı için önemliydi; kartsız link çıplak URL olarak görünüyordu.
+  `canonical` bilinçli olarak eklenmedi: statik `index.html` ile tüm rotalar aynı canonical'ı
+  gösterirdi ve bu, alt sayfaları aramadan düşürürdü.
+- **`robots.txt` + `sitemap.xml`** (altı rota).
+- **"İçeriğe geç" bağlantısı** — klavye kullanıcısı header'daki yedi bağlantıyı her sayfada
+  tekrar geçmek zorunda kalmasın diye.
 
 ### 10. Kurulmayanlar
 

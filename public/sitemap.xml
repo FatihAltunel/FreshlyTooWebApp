@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://fatihaltunel.github.io/FreshlyTooWebApp/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://fatihaltunel.github.io/FreshlyTooWebApp/isletmeler</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fatihaltunel.github.io/FreshlyTooWebApp/fiyatlandirma</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fatihaltunel.github.io/FreshlyTooWebApp/hikayemiz</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fatihaltunel.github.io/FreshlyTooWebApp/sss</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://fatihaltunel.github.io/FreshlyTooWebApp/iletisim</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>

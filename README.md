@@ -54,7 +54,7 @@ Routing is client-side (`react-router-dom`) with real URLs. Because GitHub Pages
 
 - **React 19** + **Vite** + plain CSS (no framework)
 - Design tokens in `:root` (`src/styles/tokens.css`), shared primitives in `src/styles/global.css`, everything else co-located per section/page
-- **Instrument Sans / Instrument Serif** via Google Fonts with `display=swap`
+- **Archivo + Fraunces** via Google Fonts with `display=swap` (see `docs/tasarim-uygunluk.md` §3b — a deliberate departure from the handoff's Instrument Sans/Serif)
 - Copy lives in one dictionary (`src/i18n/content.js`) with `tr` and `en` sharing the same key structure; language is held in React context and persisted to `localStorage`
 
 ### Motion
